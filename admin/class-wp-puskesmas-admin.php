@@ -20,6 +20,10 @@
  * @subpackage Wp_Puskesmas/admin
  * @author     HellQiii <rifqismurf50@gmail.com>
  */
+
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
 class Wp_Puskesmas_Admin {
 
 	/**
@@ -98,6 +102,14 @@ class Wp_Puskesmas_Admin {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-puskesmas-admin.js', array( 'jquery' ), $this->version, false );
 
+	}
+
+	function crb_attach_wp_puskesmas_options(){
+		$basic_options_container = Container::make( 'theme_options', __( 'WP Puskesmas Options' ) )
+		->set_page_menu_position( 4 )
+        ->add_fields( array(
+        	Field::make( 'text', 'crb_wp_puskesmas_key', 'reCAPTCHA Key' )
+    	) );
 	}
 
 }
