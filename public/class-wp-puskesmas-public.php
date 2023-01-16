@@ -99,5 +99,10 @@ class Wp_Puskesmas_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-puskesmas-public.js', array( 'jquery' ), $this->version, false );
 
 	}
-
+	public function cek_gizi(){
+		if(!empty($_GET) && !empty($_GET['post'])){
+			return '';
+		}
+		require_once plugin_dir_path(dirname(__FILE__)) . 'public/partials/wp-puskesmas-cek-gizi.php';
+	}
 }
