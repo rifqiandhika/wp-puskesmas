@@ -49,7 +49,7 @@
   </div>
         <div class="mb-2">
     <label class="form-label">Berat Badan</label>
-    <input type="text" class="form-control" name="berat-badan">
+    <input type="number" class="form-control" name="berat-badan">
   </div>
   <div class="mb-2">
     <label class="form-label">Tinggi Badan</label>
@@ -73,12 +73,30 @@
     jQuery("#simpan").on("click", function(e){
       e.preventDefault();
       var umur = jQuery("input[name='tanggal-lahir']").val();
+      var berat = +jQuery("input[name='berat-badan']").val();
+      var tinggi = +jQuery("input[name='tinggi-badan']").val();
       umur = _calculateAge(umur);
       if(
         umur >= 0
         && umur <= 0.5
       ){
         alert('umur dibawah 6 bulan');
+        if(
+          berat>=3.3
+          && berat<=7.9
+        ){
+          alert('berat '+berat+' ideal.');
+        }else{
+          alert('berat '+berat+' tidak ideal.');
+        }
+        if(
+          tinggi>=49.9
+          && tinggi<=67.6
+        ){
+          alert('tinggi '+tinggi+' ideal');
+        }else{
+          alert('tinggi '+tinggi+' tidak ideal');
+        }
       }else if(
         umur >= 0.5
         && umur < 1
