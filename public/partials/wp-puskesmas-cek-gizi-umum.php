@@ -102,26 +102,106 @@
         && umur < 1
       ){
         alert('umur 7-11 Bulan');
+        if(
+          berat>=8.3
+          && berat<=9.4
+        ){
+          alert('berat '+berat+' ideal.');
+        }else{
+          alert('berat '+berat+' tidak ideal.');
+        }
+        if(
+          tinggi>=69.2
+          && tinggi<=74.5
+        ){
+          alert('tinggi '+tinggi+' ideal');
+        }else{
+          alert('tinggi '+tinggi+' tidak ideal');
+        }
       }else if(
         umur >= 1
         && umur <= 3
       ){
         alert('umur 1-3 Tahun');
+        if(
+          berat>=9.9
+          && berat<=14.3
+        ){
+          alert('berat '+berat+' ideal.');
+        }else{
+          alert('berat '+berat+' tidak ideal.');
+        }
+        if(
+          tinggi>=75.7
+          && tinggi<=96.1
+        ){
+          alert('tinggi '+tinggi+' ideal');
+        }else{
+          alert('tinggi '+tinggi+' tidak ideal');
+        }
       }else if(
         umur >= 4
         && umur <= 6
       ){
         alert('umur 4-6 Tahun');
+        if(
+          berat>=14.5
+          && berat<=19
+        ){
+          alert('berat '+berat+' ideal.');
+        }else{
+          alert('berat '+berat+' tidak ideal.');
+        }
+        if(
+          tinggi>=96.7
+          && tinggi<=112
+        ){
+          alert('tinggi '+tinggi+' ideal');
+        }else{
+          alert('tinggi '+tinggi+' tidak ideal');
+        }
       }else if(
         umur >= 7
         && umur <= 12
       ){
         alert('umur 7-12 Tahun');
+        if(
+          berat>=27
+          && berat<=36
+        ){
+          alert('berat '+berat+' ideal.');
+        }else{
+          alert('berat '+berat+' tidak ideal.');
+        }
+        if(
+          tinggi>=130
+          && tinggi<=145
+        ){
+          alert('tinggi '+tinggi+' ideal');
+        }else{
+          alert('tinggi '+tinggi+' tidak ideal');
+        }
       }else if(
         umur >= 13
         && umur <= 18
       ){
         alert('umur 13-18 Tahun');
+        if(
+          berat>=46
+          && berat<=50
+        ){
+          alert('berat '+berat+' ideal.');
+        }else{
+          alert('berat '+berat+' tidak ideal.');
+        }
+        if(
+          tinggi>=158
+          && tinggi<=165
+        ){
+          alert('tinggi '+tinggi+' ideal');
+        }else{
+          alert('tinggi '+tinggi+' tidak ideal');
+        }
       }
     })
   })
