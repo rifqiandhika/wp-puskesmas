@@ -61,10 +61,10 @@
 
   <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Status Gizi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -170,12 +170,12 @@
         umur >= 4
         && umur <= 6
       ){
-        ket_umur = 'umur 4-6 Tahun';
+        ket_umur = 'umur 4-6 tahun';
         if(
           berat>=14.5
           && berat<=19
         ){
-          ket_berat = 'berat '+berat+' ideal.';
+          ket_berat ='berat '+berat+' ideal.';
         }else{
           ket_berat = 'berat '+berat+' tidak ideal.';
         }
@@ -196,7 +196,7 @@
           berat>=27
           && berat<=36
         ){
-          ket_berat = 'berat '+berat+' ideal.';
+          ket_berat ='berat '+berat+' ideal.';
         }else{
           ket_berat = 'berat '+berat+' tidak ideal.';
         }
@@ -217,7 +217,7 @@
           berat>=46
           && berat<=50
         ){
-          ket_berat = 'berat '+berat+' ideal.';
+          ket_berat ='berat '+berat+' ideal.';
         }else{
           ket_berat = 'berat '+berat+' tidak ideal.';
         }
