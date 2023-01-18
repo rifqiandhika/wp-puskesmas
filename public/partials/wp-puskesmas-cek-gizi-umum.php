@@ -41,26 +41,46 @@
     </tbody>
 </table>
 <form style="width: 500px; margin: auto;" class="text-center">
-    <div class="form-group">
-        <label for="">Masukan Data Umum</label>
-        <div class="mb-2">
-    <label class="form-label">Tanggal Lahir</label>
-    <input type="date" class="form-control" name="tanggal-lahir">
-  </div>
-        <div class="mb-2">
-    <label class="form-label">Berat Badan</label>
-    <input type="number" class="form-control" name="berat-badan">
-  </div>
-  <div class="mb-2">
-    <label class="form-label">Tinggi Badan</label>
-    <input type="text" class="form-control" name="tinggi-badan">
-  </div>
-    <div class="modal-footer text-center">
-    <button class="btn btn-primary" id="simpan">Simpan</button>
+  <div class="form-group">
+    <label for="">Masukan Data Umum</label>
+    <div class="mb-2">
+      <label class="form-label">Tanggal Lahir</label>
+      <input type="date" class="form-control" name="tanggal-lahir">
     </div>
+    <div class="mb-2">
+      <label class="form-label">Berat Badan</label>
+      <input type="number" class="form-control" name="berat-badan">
     </div>
+    <div class="mb-2">
+      <label class="form-label">Tinggi Badan</label>
+      <input type="text" class="form-control" name="tinggi-badan">
+    </div>
+    <button type="button" class="btn btn-primary" id="simpan">Proses</button>    
+  </div>
 </form>
+
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+
   function _calculateAge(date) { // birthday is a date
       var birthday = new Date(date);
       var ageDifMs = Date.now() - birthday.getTime();
@@ -73,136 +93,167 @@
     jQuery("#simpan").on("click", function(e){
       e.preventDefault();
       var umur = jQuery("input[name='tanggal-lahir']").val();
+      if(umur == ''){
+        return alert("Tanggal lahir tidak boleh kosong!");
+      }
       var berat = +jQuery("input[name='berat-badan']").val();
       var tinggi = +jQuery("input[name='tinggi-badan']").val();
       umur = _calculateAge(umur);
+      var ket_umur = '';
+      var ket_berat = '';
+      var ket_tinggi = '';
+
       if(
         umur >= 0
         && umur <= 0.5
       ){
-        alert('umur dibawah 6 bulan');
+        ket_umur = 'umur dibawah 6 bulan';
         if(
           berat>=3.3
           && berat<=7.9
         ){
-          alert('berat '+berat+' ideal.');
+          ket_berat ='berat '+berat+' ideal.';
         }else{
-          alert('berat '+berat+' tidak ideal.');
+          ket_berat = 'berat '+berat+' tidak ideal.';
         }
         if(
           tinggi>=49.9
           && tinggi<=67.6
         ){
-          alert('tinggi '+tinggi+' ideal');
+          ket_tinggi = 'tinggi '+tinggi+' ideal';
         }else{
-          alert('tinggi '+tinggi+' tidak ideal');
+          ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
         umur >= 0.5
         && umur < 1
       ){
-        alert('umur 7-11 Bulan');
+        ket_umur = 'umur 7-11 Bulan';
         if(
           berat>=8.3
           && berat<=9.4
         ){
-          alert('berat '+berat+' ideal.');
+          ket_berat = 'berat '+berat+' ideal.';
         }else{
-          alert('berat '+berat+' tidak ideal.');
+          ket_berat = 'berat '+berat+' tidak ideal.';
         }
         if(
           tinggi>=69.2
           && tinggi<=74.5
         ){
-          alert('tinggi '+tinggi+' ideal');
+          ket_tinggi = 'tinggi '+tinggi+' ideal';
         }else{
-          alert('tinggi '+tinggi+' tidak ideal');
+          ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
         umur >= 1
         && umur <= 3
       ){
-        alert('umur 1-3 Tahun');
+        ket_umur = 'umur 1-3 Tahun';
         if(
           berat>=9.9
           && berat<=14.3
         ){
-          alert('berat '+berat+' ideal.');
+          ket_berat = 'berat '+berat+' ideal.';
         }else{
-          alert('berat '+berat+' tidak ideal.');
+          ket_berat = 'berat '+berat+' tidak ideal.';
         }
         if(
           tinggi>=75.7
           && tinggi<=96.1
         ){
-          alert('tinggi '+tinggi+' ideal');
+          ket_tinggi = 'tinggi '+tinggi+' ideal';
         }else{
-          alert('tinggi '+tinggi+' tidak ideal');
+          ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
         umur >= 4
         && umur <= 6
       ){
-        alert('umur 4-6 Tahun');
+        ket_umur = 'umur 4-6 Tahun';
         if(
           berat>=14.5
           && berat<=19
         ){
-          alert('berat '+berat+' ideal.');
+          ket_berat = 'berat '+berat+' ideal.';
         }else{
-          alert('berat '+berat+' tidak ideal.');
+          ket_berat = 'berat '+berat+' tidak ideal.';
         }
         if(
           tinggi>=96.7
           && tinggi<=112
         ){
-          alert('tinggi '+tinggi+' ideal');
+          ket_tinggi = 'tinggi '+tinggi+' ideal';
         }else{
-          alert('tinggi '+tinggi+' tidak ideal');
+          ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
         umur >= 7
         && umur <= 12
       ){
-        alert('umur 7-12 Tahun');
+        ket_umur = 'umur 7-12 Tahun';
         if(
           berat>=27
           && berat<=36
         ){
-          alert('berat '+berat+' ideal.');
+          ket_berat = 'berat '+berat+' ideal.';
         }else{
-          alert('berat '+berat+' tidak ideal.');
+          ket_berat = 'berat '+berat+' tidak ideal.';
         }
         if(
           tinggi>=130
           && tinggi<=145
         ){
-          alert('tinggi '+tinggi+' ideal');
+          ket_tinggi = 'tinggi '+tinggi+' ideal';
         }else{
-          alert('tinggi '+tinggi+' tidak ideal');
+          ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
         umur >= 13
         && umur <= 18
       ){
-        alert('umur 13-18 Tahun');
+        ket_umur = 'umur 13-18 Tahun';
         if(
           berat>=46
           && berat<=50
         ){
-          alert('berat '+berat+' ideal.');
+          ket_berat = 'berat '+berat+' ideal.';
         }else{
-          alert('berat '+berat+' tidak ideal.');
+          ket_berat = 'berat '+berat+' tidak ideal.';
         }
         if(
           tinggi>=158
           && tinggi<=165
         ){
-          alert('tinggi '+tinggi+' ideal');
+          ket_tinggi = 'tinggi '+tinggi+' ideal';
         }else{
-          alert('tinggi '+tinggi+' tidak ideal');
+          ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }
-    })
-  })
+      var table = ''
+        +'<table>'
+          +'<thead>'
+            +'<tr>'
+              +'<th>Umur</th>'
+              +'<th>Tinggi</th>'
+              +'<th>Keterangan Tinggi</th>'
+              +'<th>Berat</th>'
+              +'<th>Keterangan Berat</th>'
+            +'</tr>'
+          +'</thead>'
+          +'<tbody>'
+            +'<tr>'
+              +'<td>'+ket_umur+'</td>'
+              +'<td>'+tinggi+' cm</td>'
+              +'<td>'+ket_tinggi+'</td>'
+              +'<td>'+berat+'</td>'
+              +'<td>'+ket_berat+'</td>'
+            +'</tr>'
+          +'</tbody>'
+        +'</table>'
+      jQuery('#staticBackdrop .modal-body').html(table);
+      jQuery('#staticBackdrop').modal('show');
+    });
+  });
+
 </script>
