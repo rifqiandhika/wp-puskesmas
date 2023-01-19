@@ -146,8 +146,8 @@
           ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
-        umur >= 1
-        && umur <= 3
+        umur >= 1.1
+        && umur <= 3.9
       ){
         ket_umur = 'umur 1-3 Tahun';
         if(
@@ -167,8 +167,8 @@
           ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
-        umur >= 4
-        && umur <= 6
+        umur >= 3.9
+        && umur <= 6.9
       ){
         ket_umur = 'umur 4-6 tahun';
         if(
@@ -188,8 +188,8 @@
           ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
-        umur >= 7
-        && umur <= 12
+        umur >= 6.9
+        && umur <= 12.9
       ){
         ket_umur = 'umur 7-12 Tahun';
         if(
@@ -209,7 +209,7 @@
           ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }else if(
-        umur >= 13
+        umur >= 12.9
         && umur <= 18
       ){
         ket_umur = 'umur 13-18 Tahun';
