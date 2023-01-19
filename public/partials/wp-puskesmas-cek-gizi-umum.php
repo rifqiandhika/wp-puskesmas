@@ -42,7 +42,7 @@
 </table>
 <form style="width: 500px; margin: auto;" class="text-center">
   <div class="form-group">
-    <label for="">Masukan Data Umum</label>
+    <label for="">Masukan Data</label>
     <div class="mb-2">
       <label class="form-label">Tanggal Lahir</label>
       <input type="date" class="form-control" name="tanggal-lahir">
