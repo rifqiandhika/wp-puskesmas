@@ -9,7 +9,10 @@ $users = get_users( $args );
 
 $nama =  '<option value="">pilih nama</option>';
 foreach ( $users as $user ) {
-    $nama .= '<option value="'.$user->ID.'">' . esc_html( $user->display_name ) . '</option>';
+    $meta  = get_user_meta($user->ID);
+    $tanggal_lahir  = $meta['birth_date'][0];
+    // print_r($meta);
+    $nama .= '<option value="'.$user->ID.'">' . esc_html( $user->display_name ) .' '.$tanggal_lagir. '</option>';
 }
 
 ?>
