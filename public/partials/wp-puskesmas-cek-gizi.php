@@ -9,9 +9,36 @@ $users = get_users( $args );
 
 $nama =  '<option value="">pilih nama</option>';
 foreach ( $users as $user ) {
-    $nama .= '<option value="'.$user->ID.'">' . esc_html( $user->display_name ) . '</option>';
+  $meta = get_user_meta($user->ID);
+  $tanggal_lahir = $meta['birth_date'][0];
+  //print_r($meta);
+    $nama .= '<option value="'.$user->ID.'">' . esc_html( $user->display_name ) .' '.$tanggal_lahir.'</option>';
 }
 
+$bln = array(
+  "Januari",
+  "Februari",
+  "Maret",
+  "April",
+  "Mei",
+  "Juni",
+  "July",
+  "Agustus",
+  "September",
+  "Oktober",
+  "November",
+  "Desember"
+);
+$bulan_opsi = '';
+$bulan_ini = date("m");
+$tahun_ini = date("Y");
+for($bulan=1; $bulan<=12; $bulan++){
+  $selected = '';
+  if($bulan == $bulan_ini){
+    $selected = "selected";
+  }
+  $bulan_opsi .= "<option $selected value='$bulan'>".$bln[$bulan-1]."</option>"; 
+}
 ?>
 <h1 class="text-center">Cek Data Gizi</h1>
 <table class="table table-bordered" style="max-width: 500px">
@@ -64,6 +91,16 @@ foreach ( $users as $user ) {
         <?php echo $nama; ?>
       </select>
     </div>
+    <div class="mb-2">
+      <label class="form-label">Tahun Pemeriksaan</label>
+      <input type="number" class="form-control" name="tahun_pemeriksaan" value="<?php echo $tahun_ini; ?>">
+    </div>    
+    <div class="mb-2">
+      <label class="form-label">Bulan Pemeriksaan</label>
+      <select class="form-control" name="bulan_pemeriksaan">
+        <?php echo $bulan_opsi; ?>
+      </select>
+    </div>   
     <div class="mb-2">
       <label class="form-label">Tanggal Lahir</label>
       <input type="date" class="form-control" name="tanggal-lahir">
