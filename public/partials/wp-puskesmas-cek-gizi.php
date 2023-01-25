@@ -13,7 +13,7 @@ foreach ( $users as $user ) {
   $meta = get_user_meta($user->ID);
   $tanggal_lahir = $meta['birth_date'][0];
   //print_r($meta);
-    $nama .= '<option value="'.$user->ID.'">' . esc_html( $user->display_name ) .' '.$tanggal_lahir.'</option>';
+    $nama .= '<option value="'.$user->ID.'">' . esc_html( $user->display_name ) .' | '.$tanggal_lahir.'</option>';
 }
 
 $bln = array(
@@ -149,6 +149,14 @@ for($bulan=1; $bulan<=12; $bulan++){
       return Math.abs(ageDate)+bulan;
   }
   jQuery(document).ready(function(){
+    jQuery("select[name='nama-anak']").on('change', function(){
+      var val = jQuery(this).val();
+      var text = jQuery(this).find('option:selected').text();
+      if(val != ''){
+        var tanggal_lahir = text.split(' | ')[1].replace(/\//g, '-');
+        jQuery('input[name="tanggal-lahir"]').val(tanggal_lahir);
+      }
+    });
     jQuery("#simpan").on("click", function(e){
       e.preventDefault();
       var umur = jQuery("input[name='tanggal-lahir']").val();
@@ -289,14 +297,19 @@ for($bulan=1; $bulan<=12; $bulan++){
           ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }
+      var id_user = jQuery("select[name='nama-anak']").val();
+      if(id_user == ''){
+        return alert('Nama tidak boleh kosong!');
+      }
+      var nama = jQuery("select[name='nama-anak']").find('option:selected').text().split(' | ')[0];
       jQuery.ajax({
         url: ajax_puskesmas.url,
         type: 'post',
         data: {
           action: 'cek_gizi_ajax',
           api_key: '<?php echo $api_key; ?>',
-          id_user: '',
-          nama: '',
+          id_user: id_user,
+          nama: nama,
           usia: ket_umur,
           tinggi: tinggi,
           berat: berat,

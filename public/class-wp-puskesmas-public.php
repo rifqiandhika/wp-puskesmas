@@ -124,7 +124,28 @@ class Wp_Puskesmas_Public {
 			'message'	=> 'Berhasil simpan data cek gizi!'
 		);
 		if (!empty($_POST['api_key']) && $_POST['api_key'] == get_option( WP_PUSKESMAS_APIKEY )) {
-			// proses simpan data
+			$cek = $wpdb->get_var($wpdb->prepare('
+				SELECT
+					id
+				FROM cek_gizi
+				WHERE id_user=%d
+					AND usia=%s
+			'), $_POST['id_user'], $_POST['usia']);
+			$data = array(
+				'id_user' => $_POST['id_user'],
+				'nama' => $_POST['nama'],
+				'usia' => $_POST['usia'],
+				'tinggi' => $_POST['tinggi'],
+				'berat' => $_POST['berat'],
+				'ket_tinggi' => $_POST['ket_tinggi'],
+				'ket_berat' => $_POST['ket_berat'],
+				'update_at' => date('Y-m-d H:i:s')
+			);
+			if(!empty($cek)){
+				$wpdb->update('cek_gizi', $data, array('id' => $cek));
+			}else{
+				$wpdb->insert('cek_gizi', $data);
+			}
 		}else{
 			$ret = array(
 				'status' => 'error',
