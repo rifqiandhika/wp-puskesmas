@@ -75,7 +75,6 @@ class Wp_Puskesmas_Public {
 		wp_enqueue_style($this->plugin_name . 'bootstrap', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css', array(), $this->version, 'all');
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-puskesmas-public.css', array(), $this->version, 'all' );
-
 	}
 
 	/**
@@ -99,6 +98,9 @@ class Wp_Puskesmas_Public {
 		wp_enqueue_script($this->plugin_name . 'bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap.bundle.min.js', array('jquery'), $this->version, false);
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-puskesmas-public.js', array( 'jquery' ), $this->version, false );
+		wp_localize_script( $this->plugin_name, 'ajax_puskesmas', array(
+		    'url' => admin_url( 'admin-ajax.php' )
+		));
 
 	}
 	public function cek_gizi(){
@@ -112,5 +114,23 @@ class Wp_Puskesmas_Public {
 			return '';
 		}
 		require_once plugin_dir_path(dirname(__FILE__)) . 'public/partials/wp-puskesmas-cek-gizi-umum.php';
+
+	}
+
+	function cek_gizi_ajax(){
+		global $wpdb;
+		$ret = array(
+			'status'	=> 'success',
+			'message'	=> 'Berhasil simpan data cek gizi!'
+		);
+		if (!empty($_POST['api_key']) && $_POST['api_key'] == get_option( WP_PUSKESMAS_APIKEY )) {
+			// proses simpan data
+		}else{
+			$ret = array(
+				'status' => 'error',
+				'message'	=> 'Format tidak sesuai!'
+			);
+		}
+		die(json_encode($ret));
 	}
 }

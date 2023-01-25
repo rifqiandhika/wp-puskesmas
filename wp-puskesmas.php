@@ -36,6 +36,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'WP_PUSKESMAS_VERSION', '1.0.0' );
+define( 'WP_PUSKESMAS_APIKEY', '_crb_apikey_puskesmas' );
 
 // ============== https://carbonfields.net/ ================
 if(!defined('Carbon_Fields_Plugin\PLUGIN_FILE')){

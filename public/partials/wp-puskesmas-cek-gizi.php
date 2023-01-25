@@ -6,6 +6,7 @@ $args = array(
     'order'   => 'ASC'
 );
 $users = get_users( $args );
+$api_key = get_option( WP_PUSKESMAS_APIKEY );
 
 $nama =  '<option value="">pilih nama</option>';
 foreach ( $users as $user ) {
@@ -288,6 +289,24 @@ for($bulan=1; $bulan<=12; $bulan++){
           ket_tinggi = 'tinggi '+tinggi+' tidak ideal';
         }
       }
+      jQuery.ajax({
+        url: ajax_puskesmas.url,
+        type: 'post',
+        data: {
+          action: 'cek_gizi_ajax',
+          api_key: '<?php echo $api_key; ?>',
+          id_user: '',
+          nama: '',
+          usia: ket_umur,
+          tinggi: tinggi,
+          berat: berat,
+          ket_tinggi: ket_tinggi,
+          ket_berat: ket_berat
+        },
+        success: function(res){
+          alert(res)
+        }
+      });
       var table = ''
         +'<table>'
           +'<thead>'
