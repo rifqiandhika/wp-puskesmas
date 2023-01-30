@@ -8,5 +8,7 @@ CREATE TABLE `cek_gizi` (
   `ket_tinggi` text NOT NULL,
   `ket_berat` text NOT NULL,
   `update_at` auto_incrementstamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `bulan` text NOT NULL,
+  `tahun` year NOT NULL,
    PRIMARY KEY  (id)
 );

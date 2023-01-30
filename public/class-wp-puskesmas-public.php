@@ -130,7 +130,9 @@ class Wp_Puskesmas_Public {
 				FROM cek_gizi
 				WHERE id_user=%d
 					AND usia=%s
-			'), $_POST['id_user'], $_POST['usia']);
+					AND bulan=%s
+					AND tahun=%d
+			', $_POST['id_user'], $_POST['usia'], $_POST['bulan'], $_POST['tahun']));
 			$data = array(
 				'id_user' => $_POST['id_user'],
 				'nama' => $_POST['nama'],
@@ -139,7 +141,9 @@ class Wp_Puskesmas_Public {
 				'berat' => $_POST['berat'],
 				'ket_tinggi' => $_POST['ket_tinggi'],
 				'ket_berat' => $_POST['ket_berat'],
-				'update_at' => date('Y-m-d H:i:s')
+				'update_at' => date('Y-m-d H:i:s'),
+				'bulan' => $_POST['bulan'],
+				'tahun' => $_POST['tahun']
 			);
 			if(!empty($cek)){
 				$wpdb->update('cek_gizi', $data, array('id' => $cek));

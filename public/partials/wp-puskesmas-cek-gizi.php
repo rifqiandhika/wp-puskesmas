@@ -163,12 +163,22 @@ for($bulan=1; $bulan<=12; $bulan++){
       if(umur == ''){
         return alert("Tanggal lahir tidak boleh kosong!");
       }
+      var bulan = jQuery("select[name='bulan_pemeriksaan']").val();
+      if(bulan == ''){
+        return alert("Bulan tidak boleh kosong!");
+      }
+      var tahun = jQuery("select[name='tahun_pemeriksaan']").val();
+      if(tahun == ''){
+        return alert("Tahun tidak boleh kosong!");
+      }
       var berat = +jQuery("input[name='berat-badan']").val();
       var tinggi = +jQuery("input[name='tinggi-badan']").val();
+      var bulan = +jQuery("input[name='bulan']").val();
       umur = _calculateAge(umur);
       var ket_umur = '';
       var ket_berat = '';
       var ket_tinggi = '';
+      var bulan = '';
 
       if(
         umur >= 0
@@ -314,7 +324,9 @@ for($bulan=1; $bulan<=12; $bulan++){
           tinggi: tinggi,
           berat: berat,
           ket_tinggi: ket_tinggi,
-          ket_berat: ket_berat
+          ket_berat: ket_berat,
+          bulan: bulan,
+          tahun: tahun
         },
         success: function(res){
           alert(res)
@@ -329,6 +341,7 @@ for($bulan=1; $bulan<=12; $bulan++){
               +'<th>Keterangan Tinggi</th>'
               +'<th>Berat</th>'
               +'<th>Keterangan Berat</th>'
+              +'<th>Bulan</th>'
             +'</tr>'
           +'</thead>'
           +'<tbody>'
@@ -338,6 +351,7 @@ for($bulan=1; $bulan<=12; $bulan++){
               +'<td>'+ket_tinggi+'</td>'
               +'<td>'+berat+'</td>'
               +'<td>'+ket_berat+'</td>'
+               +'<td>'+bulan+'</td>'
             +'</tr>'
           +'</tbody>'
         +'</table>'
