@@ -96,7 +96,7 @@ class Wp_Puskesmas_Public {
 		 * class.
 		 */
 		wp_enqueue_script($this->plugin_name . 'bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap.bundle.min.js', array('jquery'), $this->version, false);
-
+		wp_enqueue_script($this->plugin_name . 'chartjs', plugin_dir_url(__FILE__) . 'js/chart.min.js', array('jquery'), $this->version, false);
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-puskesmas-public.js', array( 'jquery' ), $this->version, false );
 		wp_localize_script( $this->plugin_name, 'ajax_puskesmas', array(
 		    'url' => admin_url( 'admin-ajax.php' )
