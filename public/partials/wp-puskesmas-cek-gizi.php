@@ -362,15 +362,31 @@ for($bulan=1; $bulan<=12; $bulan++){
       jQuery('#staticBackdrop').modal('show');
     });
   });
-
   var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
+  var myChart = new Chart(ctx,  {
       type: 'line',
       data: {
-        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        labels: ["Januari",
+                  "Februari",
+                  "Maret",
+                  "April",
+                  "Mei",
+                  "Juni",
+                  "July",
+                  "Agustus",
+                  "September",
+                  "Oktober",
+                  "November",
+                  "Desember"],
         datasets: [{ 
             data: [86,114,106,106,107,111,133],
-            label: "Total",
+            label: "Berat Badan Rifqi",
+            borderColor: "#3e95cd",
+            backgroundColor: "#7bb6dd",
+            fill: false,
+          },{ 
+            data: [86,114,106,106,107,111,133],
+            label: " Tinggi Badan Rifqi",
             borderColor: "#3e95cd",
             backgroundColor: "#7bb6dd",
             fill: false,
