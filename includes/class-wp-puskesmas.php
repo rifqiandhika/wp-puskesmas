@@ -182,6 +182,7 @@ class Wp_Puskesmas {
 		
 		add_shortcode('cek_gizi', array($plugin_public, 'cek_gizi'));
 		add_shortcode('cek_gizi_umum', array($plugin_public, 'cek_gizi_umum'));
+		add_shortcode('cek_gizi_map', array($plugin_public, 'cek_gizi_map'));
 
 	}
 

@@ -42,7 +42,7 @@ for($bulan=1; $bulan<=12; $bulan++){
 }
 ?>
 <h1 class="text-center">Cek Data Gizi</h1>
-<table class="table table-bordered" style="max-width: 500px">
+<table class="table table-bordered" style="max-width: 500px; margin: auto;">
     <thead>
       <tr>
         <th>Umur</th>

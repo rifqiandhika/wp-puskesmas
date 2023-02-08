@@ -103,17 +103,27 @@ class Wp_Puskesmas_Public {
 		));
 
 	}
+
 	public function cek_gizi(){
 		if(!empty($_GET) && !empty($_GET['post'])){
 			return '';
 		}
 		require_once plugin_dir_path(dirname(__FILE__)) . 'public/partials/wp-puskesmas-cek-gizi.php';
 	}
+
 	public function cek_gizi_umum(){
 		if(!empty($_GET) && !empty($_GET['post'])){
 			return '';
 		}
 		require_once plugin_dir_path(dirname(__FILE__)) . 'public/partials/wp-puskesmas-cek-gizi-umum.php';
+
+	}
+
+	public function cek_gizi_map(){
+		if(!empty($_GET) && !empty($_GET['post'])){
+			return '';
+		}
+		require_once plugin_dir_path(dirname(__FILE__)) . 'public/partials/wp-puskesmas-cek-gizi-map.php';
 
 	}
 
