@@ -1,6 +1,6 @@
 <div id="map-canvas" style="width: 90%; margin: auto; height: 400px;"></div>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=xxxxxx&callback=initMap&libraries=places&libraries=drawing"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeleTgwtzo4PCX7AOtpb3oQlRoPZiZkl0&callback=initMap&libraries=places&libraries=drawing"></script>
 <script type="text/javascript">
     function cari_alamat() {
         var alamat = jQuery('#cari-alamat-input').val();
@@ -36,14 +36,22 @@
 
     function initMap() {
         // Lokasi Center Map
-        var lokasi_aset = new google.maps.LatLng(0, 0);
+        var lokasi_aset = new google.maps.LatLng(-7.6539559,111.3159123);
         // Setting Map
         var mapOptions = {
-            zoom: 18,
+            zoom: 15,
             center: lokasi_aset,
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
         // Membuat Map
         window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        addMarker(lokasi_aset);
+    }
+    function addMarker(lokasi) {
+        new google.maps.Marker({
+            position:lokasi,
+            map,
+            title: "Hello World",
+        });
     }
 </script>
