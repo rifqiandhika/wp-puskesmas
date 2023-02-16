@@ -36,7 +36,7 @@
 
     function initMap() {
         // Lokasi Center Map
-        var lokasi_aset = new google.maps.LatLng(-7.6539559,111.3159123);
+        var lokasi_aset = new google.maps.LatLng(-7.655205,111.3275165);
         // Setting Map
         var mapOptions = {
             zoom: 15,
@@ -46,6 +46,7 @@
         // Membuat Map
         window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         addMarker(lokasi_aset);
+        addPolyline(lokasi_aset);
     }
     function addMarker(lokasi) {
         new google.maps.Marker({
@@ -54,4 +55,20 @@
             title: "Hello World",
         });
     }
+    function addPolyline(lokasi) {
+        const flightPlanCoordinates = [
+            { lat: -7.655205, lng: 111.3275165 },
+            { lat: -7.630955,  lng: 111.529689 },
+        ];
+
+        const flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: "#FF0000",
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+        });
+
+  flightPath.setMap(map);
+    }   
 </script>
