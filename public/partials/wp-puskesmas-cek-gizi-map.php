@@ -1,6 +1,5 @@
 <div id="map-canvas" style="width: 90%; margin: auto; height: 400px;"></div>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeleTgwtzo4PCX7AOtpb3oQlRoPZiZkl0&callback=initMap&libraries=places&libraries=drawing"></script>
 <script type="text/javascript">
     function cari_alamat() {
         var alamat = jQuery('#cari-alamat-input').val();
@@ -54,6 +53,7 @@
             position:lokasi,
             map,
             title: "Hello World",
+            icon: 'http://maps.google.com/mapfiles/kml/shapes/airports.png',
         });
     }
     function addPolyline(lokasi) {
@@ -92,3 +92,5 @@
         bermudaTriangle.setMap(map);
     }   
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=xxxxx&callback=initMap&libraries=places&libraries=drawing"></script>
