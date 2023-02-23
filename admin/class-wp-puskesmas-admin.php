@@ -116,6 +116,9 @@ class Wp_Puskesmas_Admin {
 			->set_help_text('Bisa dilihat di <a href="https://www.google.com/recaptcha/admin/" target="_blank">https://www.google.com/recaptcha/admin/</a>.'),
 			Field::make( 'text', 'crb_apikey_puskesmas', 'API KEY' )
 				->set_default_value($this->functions->generateRandomString())
+				->set_help_text('Wajib diisi. API KEY digunakan untuk integrasi data.'),
+			Field::make( 'image', 'crb_fotosatu_puskesmas', 'Foto Satu' )
+				->set_value_type('url')
 				->set_help_text('Wajib diisi. API KEY digunakan untuk integrasi data.')
     	) );
 	}

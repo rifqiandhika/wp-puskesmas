@@ -45,6 +45,8 @@
         // Membuat Map
         window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         addMarker(lokasi_aset);
+        addMarker({lat: -7.657010,lng: 111.325493});
+        addMarker({lat: -7.657655,lng: 111.329797});
         addPolyline(lokasi_aset);
         addPolygon(lokasi_aset);
     }
@@ -53,7 +55,7 @@
             position:lokasi,
             map,
             title: "Hello World",
-            icon: 'http://maps.google.com/mapfiles/kml/shapes/airports.png',
+            icon: '<?php echo get_option('_crb_fotosatu_puskesmas');?>',
         });
     }
     function addPolyline(lokasi) {
@@ -93,4 +95,4 @@
     }   
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=xxxxx&callback=initMap&libraries=places&libraries=drawing"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeleTgwtzo4PCX7AOtpb3oQlRoPZiZkl0&callback=initMap&libraries=places&libraries=drawing"></script>
